@@ -1,0 +1,21 @@
+.nav { background: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 0 48px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.logo { display: flex; align-items: center; gap: 10px; padding: 18px 0; text-decoration: none; }
+.logoMark { width: 30px; height: 30px; background: var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logoLeaf { width: 14px; height: 14px; background: #fff; clip-path: ellipse(50% 70% at 50% 30%); }
+.logoText { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -.02em; }
+.links { display: flex; list-style: none; align-items: center; }
+.link { color: var(--mid); text-decoration: none; font-size: 13px; font-weight: 400; padding: 22px 16px; transition: color var(--transition); border-bottom: 2px solid transparent; display: block; }
+.link:hover { color: var(--ink); }
+.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+.right { display: flex; align-items: center; gap: 14px; }
+.shopBtn { margin-left: 4px; }
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.burger span { display: block; width: 20px; height: 1.5px; background: var(--ink); }
+@media (max-width: 900px) {
+  .nav { padding: 0 24px; }
+  .links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; border-bottom: 1px solid var(--border); z-index: 99; }
+  .linksOpen { display: flex; }
+  .link { padding: 14px 24px; border-bottom: 1px solid var(--border); width: 100%; }
+  .burger { display: flex; }
+  .shopBtn { display: none; }
+}
