@@ -2,564 +2,1199 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<title>Home - Penantia – Shilajit</title>
-<meta name="description" content="Ionic minerals and fulvic acid in resin form. The delivery mechanism that standard mineral supplements cannot match">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Penantia – Pure Himalayan Shilajit</title>
+<meta name="description" content="Pure Himalayan Shilajit Resin. 95.2% fulvic acid. Hand-harvested at 15,000ft. Ionic minerals. Resin form only.">
 <link rel="canonical" href="https://penantia.com/">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://penantia.com/">
-<meta property="og:title" content="Home - Penantia – Shilajit">
-<meta property="og:description" content="Ionic minerals and fulvic acid in resin form. The delivery mechanism that standard mineral supplements cannot match">
+<meta property="og:title" content="Penantia – Pure Himalayan Shilajit">
+<meta property="og:description" content="Pure Himalayan Shilajit Resin. 95.2% fulvic acid. Hand-harvested at 15,000ft.">
 <meta property="og:locale" content="en_AU">
-<meta property="og:site_name" content="Penantia">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Penantia","url":"https://penantia.com","sameAs":["https://www.instagram.com/penantia_official/","https://www.facebook.com/PenantiaOfficial/","https://x.com/penantiaglobal"],"contactPoint":{"@type":"ContactPoint","telephone":"+61-494-039-662","contactType":"customer service","email":"support@penantia.com"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Pure Himalayan Shilajit Resin (20g)","description":"Ionic minerals and fulvic acid in resin form. Hand-harvested at 15,000ft in Ladakh. 95.2% fulvic acid. Batch-tested by Australian laboratories.","brand":{"@type":"Brand","name":"Penantia"},"offers":{"@type":"Offer","url":"https://penantia.com/product/pure-himalayan-shilajit-20g/","priceCurrency":"AUD","price":"120.00","availability":"https://schema.org/InStock"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","reviewCount":"2"}}</script>
+
 <style>
-/* ── Reset ──────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════════ */
+:root {
+  --black: #080806;
+  --ink: #1a1a18;
+  --forest: #0f2d1e;
+  --green: #1b4332;
+  --green-mid: #2d6a4f;
+  --green-bright: #52b788;
+  --green-glow: rgba(82,183,136,.18);
+  --gold: #c9a84c;
+  --gold-lt: rgba(201,168,76,.15);
+  --chalk: #f5f2ec;
+  --white: #fff;
+  --glass: rgba(255,255,255,.04);
+  --glass-border: rgba(255,255,255,.09);
+  --stone: rgba(255,255,255,.45);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Inter', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ═══════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
-body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; color: #1a1a18; line-height: 1.65; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
-button { cursor: pointer; font-family: inherit; border: none; background: none; }
+button { cursor: none; font-family: inherit; border: none; background: none; }
 
-/* ── Typography ─────────────────────────────────────────── */
-.serif { font-family: 'DM Serif Display', Georgia, serif; }
+/* ═══════════════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════════════ */
+#cursor-dot {
+  width: 8px; height: 8px;
+  background: var(--green-bright);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.05s, background 0.2s;
+}
+#cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(82,183,136,.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform 0.15s var(--ease-out), width 0.3s var(--ease-out), height 0.3s var(--ease-out), border-color 0.2s;
+}
+body.hovering #cursor-ring {
+  width: 56px; height: 56px;
+  border-color: var(--green-bright);
+}
 
-/* ── Colour tokens ──────────────────────────────────────── */
-/* 
-  --ink: #1a1a18         near-black
-  --off: #F6F5F2         warm off-white backgrounds
-  --forest: #1b4332      dark forest green (marquee, CTA)
-  --stone: #9a9a95       muted grey text
-  --mid: #555550         body text mid-tone
-  --border: #e3e2de      subtle warm border
-*/
+/* ═══════════════════════════════════════════════════
+   PARTICLE CANVAS
+═══════════════════════════════════════════════════ */
+#particles-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .6;
+}
 
-/* ── Topbar ─────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════
+   NOISE OVERLAY
+═══════════════════════════════════════════════════ */
+.noise::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: .5;
+}
+
+/* ═══════════════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════════════ */
 .topbar {
-  background: #1a1a18;
-  padding: 8px 48px;
+  position: relative;
+  z-index: 100;
+  background: rgba(8,8,6,.9);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 9px 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 12px;
-  letter-spacing: .02em;
+  font-size: 11.5px;
+  letter-spacing: .04em;
+  backdrop-filter: blur(20px);
 }
-.topbar a { color: rgba(255,255,255,.5); transition: color .2s; }
-.topbar a:hover { color: #fff; }
+.topbar a { color: rgba(255,255,255,.38); transition: color .2s; }
+.topbar a:hover { color: var(--green-bright); }
 .tb-l, .tb-r { display: flex; align-items: center; gap: 20px; }
-.tb-sep { width: 1px; height: 11px; background: rgba(255,255,255,.15); }
+.tb-sep { width: 1px; height: 11px; background: var(--glass-border); }
+.tb-pill {
+  background: rgba(82,183,136,.1);
+  border: 1px solid rgba(82,183,136,.25);
+  color: var(--green-bright);
+  font-size: 10.5px;
+  font-weight: 500;
+  padding: 3px 12px;
+  border-radius: 20px;
+  letter-spacing: .06em;
+}
 
-/* ── Nav ────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════════ */
 .nav {
-  background: #fff;
-  border-bottom: 1px solid #e3e2de;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
+  background: rgba(8,8,6,.8);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
   padding: 0 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: background .3s;
 }
-.nav-logo { display: flex; align-items: center; padding: 12px 0; }
-.nav-logo img { height: 40px; width: auto; }
+.nav.scrolled { background: rgba(8,8,6,.95); }
+.nav-logo { display: flex; align-items: center; padding: 16px 0; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo-text {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: -.01em;
+  margin-left: 10px;
+  display: none; /* logo image preferred */
+}
 .nav-links { display: flex; list-style: none; }
 .nav-links a {
-  font-size: 13px;
-  color: #555550;
-  padding: 20px 15px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,.5);
+  padding: 22px 16px;
   display: block;
-  border-bottom: 2px solid transparent;
-  transition: color .18s, border-color .18s;
-  letter-spacing: .01em;
+  position: relative;
+  transition: color .2s;
+  letter-spacing: .02em;
 }
-.nav-links a:hover { color: #1a1a18; }
-.nav-links a.active {
-  color: #1a1a18;
-  font-weight: 500;
-  border-bottom-color: #1a1a18;
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; right: 50%;
+  height: 1px;
+  background: var(--green-bright);
+  transition: left .25s var(--ease-out), right .25s var(--ease-out);
 }
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after, .nav-links a.active::after { left: 16px; right: 16px; }
+.nav-links a.active { color: var(--white); }
 .nav-right { display: flex; align-items: center; gap: 16px; }
-.nav-cart { font-size: 12px; color: #9a9a95; display: flex; align-items: center; gap: 5px; }
-.btn-login {
-  background: #1a1a18;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 9px 18px;
-  border-radius: 3px;
-  letter-spacing: .04em;
-  transition: background .18s;
+.nav-cart {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.4);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: color .2s;
 }
-.btn-login:hover { background: #333; }
+.nav-cart:hover { color: var(--white); }
+.btn-shop-now {
+  background: linear-gradient(135deg, var(--green-mid), var(--green));
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 4px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s var(--ease-spring), box-shadow .3s;
+}
+.btn-shop-now::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.15), transparent);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.btn-shop-now:hover { transform: translateY(-1px); box-shadow: 0 8px 32px rgba(29,67,50,.5); }
+.btn-shop-now:hover::before { opacity: 1; }
 
-/* ── Marquee / badge bar ────────────────────────────────── */
+/* ═══════════════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════════════ */
 .marquee-bar {
-  background: #1b4332;
-  padding: 10px 0;
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(90deg, var(--forest), var(--green), var(--forest));
+  padding: 11px 0;
   overflow: hidden;
   white-space: nowrap;
 }
 .marquee-inner {
   display: inline-flex;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee 24s linear infinite;
 }
-@keyframes marquee-scroll { to { transform: translateX(-50%); } }
+.marquee-bar:hover .marquee-inner { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
 .m-item {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255,255,255,.8);
-  letter-spacing: .08em;
+  gap: 9px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  letter-spacing: .1em;
   text-transform: uppercase;
-  padding: 0 32px;
+  padding: 0 36px;
 }
 .m-dot {
-  width: 4px;
-  height: 4px;
+  width: 5px; height: 5px;
   border-radius: 50%;
-  background: rgba(255,255,255,.45);
+  background: var(--green-bright);
+  box-shadow: 0 0 6px var(--green-bright);
   flex-shrink: 0;
 }
 
-/* ── Hero ───────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════ */
 .hero {
-  background: #1a1a18;
-  padding: 96px 48px 88px;
   position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 48px;
   overflow: hidden;
 }
-.hero::after {
-  content: '';
+.hero-bg {
   position: absolute;
-  top: 0; right: 0; bottom: 0;
-  width: 55%;
-  background: radial-gradient(ellipse at 80% 50%, rgba(27,67,50,.5) 0%, transparent 65%);
-  pointer-events: none;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(29,67,50,.6) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(15,45,30,.4) 0%, transparent 60%),
+    var(--black);
 }
-.hero-inner { max-width: 1140px; margin: 0 auto; position: relative; z-index: 1; }
-.hero-pill {
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1140px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 80px;
+  align-items: center;
+}
+.hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 28px;
+  gap: 10px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 7px 18px;
+  border-radius: 24px;
+  margin-bottom: 32px;
   font-size: 11px;
   font-weight: 500;
-  letter-spacing: .1em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.55);
+  backdrop-filter: blur(8px);
 }
-.hero-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: #6fcf97; }
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green-bright);
+  box-shadow: 0 0 10px var(--green-bright);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--green-bright); }
+  50% { box-shadow: 0 0 20px var(--green-bright), 0 0 40px rgba(82,183,136,.3); }
+}
 .hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 62px;
+  font-family: var(--serif);
+  font-size: 68px;
   font-weight: 400;
-  color: #fff;
-  line-height: 1.07;
-  letter-spacing: -.02em;
-  margin-bottom: 22px;
-  max-width: 780px;
+  color: var(--white);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  margin-bottom: 28px;
 }
-.hero h1 .muted { color: rgba(255,255,255,.38); }
+.hero h1 .accent {
+  background: linear-gradient(135deg, var(--green-bright), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero h1 .muted {
+  color: rgba(255,255,255,.3);
+}
 .hero-sub {
-  font-size: 16px;
+  font-size: 17px;
   color: rgba(255,255,255,.5);
   line-height: 1.75;
   max-width: 480px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
   font-weight: 300;
 }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-.btn-hero-primary {
-  display: inline-block;
-  background: #fff;
-  color: #1a1a18;
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+.btn-primary-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--green-mid) 0%, var(--green) 100%);
+  color: var(--white);
   font-size: 13px;
   font-weight: 600;
-  padding: 14px 32px;
-  border-radius: 3px;
-  transition: background .18s;
+  padding: 15px 34px;
+  border-radius: 4px;
+  letter-spacing: .04em;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s var(--ease-spring), box-shadow .3s;
 }
-.btn-hero-primary:hover { background: #f0f0ec; }
-.btn-hero-ghost {
-  display: inline-block;
-  background: transparent;
+.btn-primary-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -60%;
+  width: 40%; height: 200%;
+  background: rgba(255,255,255,.2);
+  transform: skewX(-20deg);
+  transition: left .5s var(--ease-out);
+}
+.btn-primary-hero:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(29,67,50,.6); }
+.btn-primary-hero:hover::before { left: 160%; }
+.btn-ghost-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass);
   color: rgba(255,255,255,.7);
   font-size: 13px;
   font-weight: 400;
-  padding: 14px 28px;
-  border-radius: 3px;
-  border: 1.5px solid rgba(255,255,255,.2);
-  transition: border-color .18s, color .18s;
+  padding: 15px 30px;
+  border-radius: 4px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  transition: background .2s, color .2s, border-color .2s;
 }
-.btn-hero-ghost:hover { border-color: rgba(255,255,255,.45); color: #fff; }
+.btn-ghost-hero:hover {
+  background: rgba(255,255,255,.08);
+  color: var(--white);
+  border-color: rgba(255,255,255,.2);
+}
+.hero-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 40px;
+}
+.h-stat {
+  flex: 1;
+  padding-right: 28px;
+  border-right: 1px solid var(--glass-border);
+}
+.h-stat:last-child { border-right: none; padding-right: 0; }
+.h-stat:not(:first-child) { padding-left: 28px; }
+.h-stat-val {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.h-stat-val .unit { font-size: 16px; color: var(--green-bright); font-family: var(--sans); }
+.h-stat-lab {
+  font-size: 10.5px;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 
-/* ── Section base ───────────────────────────────────────── */
-.sec { padding: 88px 48px; }
-.sec-off { background: #F6F5F2; }
-.sec-white { background: #fff; }
-.sec-dark { background: #1a1a18; }
+/* Hero product card */
+.hero-product {
+  position: relative;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  overflow: hidden;
+}
+.hero-product::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(82,183,136,.5), transparent);
+}
+.hero-product::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(82,183,136,.12), transparent 70%);
+  pointer-events: none;
+}
+.hp-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+.hp-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.hp-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+.hp-badge-dark { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+.hp-badge-green { background: rgba(82,183,136,.15); color: var(--green-bright); border: 1px solid rgba(82,183,136,.3); }
+.hp-price {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--white);
+  text-align: right;
+}
+.hp-price sub { font-size: 13px; color: rgba(255,255,255,.4); font-family: var(--sans); font-weight: 300; }
+.hp-price-note { font-size: 10px; color: rgba(255,255,255,.3); text-align: right; margin-top: 2px; }
+
+.hp-jar-zone {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 10px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+.hp-jar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.jar-lid {
+  width: 110px; height: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.05));
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 5px 5px 0 0;
+}
+.jar-body {
+  width: 130px; height: 148px;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.1);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.jar-body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(82,183,136,.4), transparent);
+}
+.jar-name {
+  font-family: var(--serif);
+  font-size: 12px;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.4;
+}
+.jar-sub { font-size: 8.5px; color: rgba(255,255,255,.4); letter-spacing: .1em; text-transform: uppercase; }
+.jar-sep { width: 50%; height: 1px; background: rgba(255,255,255,.08); }
+.jar-mini-row { display: flex; gap: 5px; }
+.jar-mini {
+  font-size: 7.5px;
+  font-weight: 600;
+  color: var(--green-bright);
+  background: rgba(82,183,136,.1);
+  padding: 2px 7px;
+  border-radius: 2px;
+  letter-spacing: .04em;
+}
+.jar-glow {
+  position: absolute;
+  bottom: -30px; left: 50%;
+  transform: translateX(-50%);
+  width: 100px; height: 60px;
+  background: radial-gradient(ellipse, rgba(82,183,136,.25), transparent 70%);
+  filter: blur(10px);
+}
+
+.hp-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+.hp-spec {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 6px;
+  padding: 12px 14px;
+  transition: background .2s, border-color .2s;
+}
+.hp-spec:hover { background: rgba(82,183,136,.07); border-color: rgba(82,183,136,.2); }
+.hp-spec-val {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--white);
+}
+.hp-spec-key { font-size: 9.5px; color: rgba(255,255,255,.35); letter-spacing: .06em; text-transform: uppercase; margin-top: 2px; }
+
+.hp-buy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid var(--glass-border);
+}
+.hp-shipping { font-size: 10.5px; color: rgba(255,255,255,.35); }
+.btn-add-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--green-mid), var(--green));
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 4px;
+  letter-spacing: .05em;
+  transition: transform .2s var(--ease-spring), box-shadow .3s;
+}
+.btn-add-cart:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(29,67,50,.5); }
+
+/* ═══════════════════════════════════════════════════
+   SECTION BASE
+═══════════════════════════════════════════════════ */
+.sec {
+  position: relative;
+  z-index: 10;
+  padding: 100px 48px;
+}
+.sec-dark { background: var(--black); }
+.sec-forest { background: var(--forest); }
+.sec-glass {
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
 .ctr { max-width: 1140px; margin: 0 auto; }
-.eyebrow {
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 10.5px;
   font-weight: 600;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: #9a9a95;
-  margin-bottom: 14px;
-}
-.eyebrow.light { color: rgba(255,255,255,.35); }
-.sec-h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 44px;
-  font-weight: 400;
-  color: #1a1a18;
-  line-height: 1.1;
-  letter-spacing: -.02em;
+  color: var(--green-bright);
   margin-bottom: 16px;
 }
-.sec-h2.wh { color: #fff; }
-.sec-h2 .muted { color: #9a9a95; font-weight: 400; }
-.sec-sub { font-size: 15px; color: #555550; line-height: 1.75; font-weight: 300; max-width: 540px; }
+.section-eyebrow::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--green-bright);
+}
+.sec-h2 {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  margin-bottom: 18px;
+}
+.sec-h2 .gradient {
+  background: linear-gradient(135deg, var(--green-bright), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sec-sub { font-size: 15px; color: rgba(255,255,255,.45); line-height: 1.75; font-weight: 300; max-width: 520px; }
 
-/* ── Feature icon grid ──────────────────────────────────── */
-.feat-grid {
+/* ═══════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale {
+  opacity: 0;
+  transform: scale(.9);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-spring);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+[data-delay="1"] { transition-delay: .1s !important; }
+[data-delay="2"] { transition-delay: .2s !important; }
+[data-delay="3"] { transition-delay: .3s !important; }
+[data-delay="4"] { transition-delay: .4s !important; }
+[data-delay="5"] { transition-delay: .5s !important; }
+
+/* ═══════════════════════════════════════════════════
+   PROOF NUMBERS
+═══════════════════════════════════════════════════ */
+.proof-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  margin-top: 52px;
-  background: #e3e2de;
-  border: 1px solid #e3e2de;
-}
-.feat-cell {
-  background: #fff;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-.feat-icon { width: 52px; height: 52px; object-fit: contain; filter: grayscale(100%) opacity(.6); }
-.feat-title { font-size: 15px; font-weight: 600; color: #1a1a18; line-height: 1.35; }
-
-/* ── Product cards ──────────────────────────────────────── */
-.prod-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 52px;
-}
-.prod-card {
-  background: #fff;
-  border: 1px solid #e3e2de;
-  border-radius: 8px;
+  background: var(--glass-border);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.prod-img { aspect-ratio: 1; overflow: hidden; background: #F6F5F2; }
-.prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-.prod-card:hover .prod-img img { transform: scale(1.03); }
-.prod-body { padding: 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.prod-name { font-family: 'DM Serif Display', serif; font-size: 22px; color: #1a1a18; line-height: 1.25; }
-.prod-desc { font-size: 13px; color: #555550; line-height: 1.65; }
-.prod-price { font-size: 20px; font-weight: 600; color: #1a1a18; }
-.btn-card {
-  display: inline-block;
-  background: #1a1a18;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 11px 22px;
-  border-radius: 3px;
-  letter-spacing: .04em;
-  margin-top: auto;
-  align-self: flex-start;
-  transition: background .18s;
-}
-.btn-card:hover { background: #333; }
-.btn-card-ol {
-  display: inline-block;
-  background: transparent;
-  color: #1a1a18;
-  border: 1.5px solid #e3e2de;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 11px 22px;
-  border-radius: 3px;
-  letter-spacing: .04em;
-  margin-top: auto;
-  align-self: flex-start;
-  transition: border-color .18s;
-}
-.btn-card-ol:hover { border-color: #1a1a18; }
-
-/* ── Biology / story ────────────────────────────────────── */
-.bio-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: center;
   margin-top: 56px;
 }
-.bio-img { border-radius: 8px; overflow: hidden; }
-.bio-img img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
-.bio-lede { font-size: 16px; color: #555550; line-height: 1.75; font-weight: 300; margin-bottom: 32px; }
-.bio-point { padding: 24px 0; border-bottom: 1px solid #e3e2de; }
-.bio-point:last-child { border-bottom: none; }
-.bio-pt-t { font-size: 15px; font-weight: 600; color: #1a1a18; margin-bottom: 6px; }
-.bio-pt-b { font-size: 13px; color: #555550; line-height: 1.65; }
-
-/* ── Principles ─────────────────────────────────────────── */
-.prin-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: #e3e2de;
-  border: 1px solid #e3e2de;
-  margin-top: 52px;
-}
-.prin-cell {
-  background: #fff;
-  padding: 36px 32px;
+.proof-cell {
+  background: rgba(255,255,255,.025);
+  padding: 44px 40px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  transition: background .3s;
+  position: relative;
+  overflow: hidden;
 }
-.prin-icon { font-size: 22px; margin-bottom: 4px; color: #1a1a18; }
-.prin-t { font-size: 15px; font-weight: 600; color: #1a1a18; }
-.prin-b { font-size: 13px; color: #555550; line-height: 1.65; }
-
-/* ── Ethics ─────────────────────────────────────────────── */
-.eth-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 52px;
+.proof-cell::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green-bright), transparent);
+  transform: scaleX(0);
+  transition: transform .4s var(--ease-out);
 }
-.eth-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 8px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.eth-n {
-  font-family: 'DM Serif Display', serif;
-  font-size: 44px;
-  color: rgba(255,255,255,.1);
+.proof-cell:hover { background: rgba(82,183,136,.05); }
+.proof-cell:hover::after { transform: scaleX(1); }
+.proof-num {
+  font-family: var(--serif);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--white);
   line-height: 1;
-  margin-bottom: 4px;
 }
-.eth-t { font-size: 15px; font-weight: 600; color: #fff; }
-.eth-b { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.65; }
+.proof-unit { font-size: 22px; color: var(--green-bright); }
+.proof-title { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.4); letter-spacing: .08em; text-transform: uppercase; }
+.proof-body { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.65; }
 
-/* ── Benefits ───────────────────────────────────────────── */
-.ben-layout {
+/* ═══════════════════════════════════════════════════
+   MECHANISM
+═══════════════════════════════════════════════════ */
+.mech-grid {
   display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 56px;
+  grid-template-columns: 1fr 380px;
+  gap: 64px;
   align-items: start;
-  margin-top: 56px;
+  margin-top: 64px;
 }
-.ben-side img { width: 100%; border-radius: 8px; aspect-ratio: 3/4; object-fit: cover; }
-.ben-list { display: flex; flex-direction: column; }
-.ben-item {
-  padding: 24px 0;
-  border-bottom: 1px solid #e3e2de;
-  cursor: pointer;
+.mstep {
   display: flex;
   gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  cursor: pointer;
+  transition: all .2s;
 }
-.ben-item:last-child { border-bottom: none; }
-.ben-num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 32px;
-  color: #e3e2de;
-  line-height: 1;
-  flex-shrink: 0;
-  width: 44px;
-  transition: color .25s;
-}
-.ben-item.on .ben-num, .ben-item:hover .ben-num { color: #1a1a18; }
-.ben-content { flex: 1; }
-.ben-t {
-  font-size: 16px;
-  font-weight: 600;
-  color: #9a9a95;
-  transition: color .25s;
-  margin-bottom: 0;
-}
-.ben-item.on .ben-t, .ben-item:hover .ben-t { color: #1a1a18; }
-.ben-b {
-  font-size: 13px;
-  color: #555550;
-  line-height: 1.65;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .35s ease, margin-top .2s;
-}
-.ben-item.on .ben-b { max-height: 200px; margin-top: 10px; }
-.ben-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #1a1a18;
-  margin-top: 12px;
-  opacity: 0;
-  transition: opacity .25s;
-  text-decoration: none;
-}
-.ben-item.on .ben-link { opacity: 1; }
-
-/* ── Commitment ─────────────────────────────────────────── */
-.com-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: #e3e2de;
-  border: 1px solid #e3e2de;
-  margin-top: 52px;
-}
-.com-cell { background: #F6F5F2; padding: 36px 32px; display: flex; flex-direction: column; gap: 12px; }
-.com-t { font-size: 15px; font-weight: 600; color: #1a1a18; }
-.com-b { font-size: 13px; color: #555550; line-height: 1.65; }
-.com-tagline {
-  font-family: 'DM Serif Display', serif;
-  font-size: 28px;
-  color: #1a1a18;
-  opacity: .28;
-  text-align: center;
-  margin-top: 52px;
-}
-
-/* ── CTA band ───────────────────────────────────────────── */
-.cta-band {
-  background: #1b4332;
-  padding: 72px 48px;
-  text-align: center;
-}
-.cta-band h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 42px;
-  font-weight: 400;
-  color: #fff;
-  margin-bottom: 14px;
-}
-.cta-band p {
-  font-size: 15px;
-  color: rgba(255,255,255,.55);
-  margin-bottom: 32px;
-  font-weight: 300;
-}
-.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.btn-cta-wh {
-  display: inline-block;
-  background: #fff;
-  color: #1b4332;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 14px 32px;
-  border-radius: 3px;
-  transition: background .18s;
-}
-.btn-cta-wh:hover { background: #f0f0ec; }
-.btn-cta-gh {
-  display: inline-block;
-  background: transparent;
-  color: rgba(255,255,255,.65);
-  font-size: 13px;
-  padding: 14px 28px;
-  border-radius: 3px;
-  border: 1.5px solid rgba(255,255,255,.25);
-  transition: border-color .18s, color .18s;
-}
-.btn-cta-gh:hover { border-color: rgba(255,255,255,.55); color: #fff; }
-
-/* ── Footer ─────────────────────────────────────────────── */
-footer {
-  background: #1a1a18;
-  padding: 60px 48px 36px;
-}
-.ft-inner { max-width: 1140px; margin: 0 auto; }
-.ft-cols {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  margin-bottom: 48px;
-}
-.ft-logo img { height: 36px; width: auto; margin-bottom: 16px; }
-.ft-tag { font-size: 13px; color: rgba(255,255,255,.35); line-height: 1.7; max-width: 260px; margin-bottom: 20px; }
-.ft-soc { display: flex; gap: 10px; }
-.fsoc {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(255,255,255,.12);
+.mstep:last-child { border-bottom: none; }
+.mstep-num {
+  width: 40px; height: 40px;
   border-radius: 50%;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,.35);
-  transition: border-color .18s, color .18s;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,.4);
+  flex-shrink: 0;
+  transition: all .25s;
 }
-.fsoc:hover { border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.7); }
-.ft-h { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 20px; }
-.ft-links { display: flex; flex-direction: column; gap: 10px; }
-.ft-links a { font-size: 13px; color: rgba(255,255,255,.38); transition: color .18s; }
-.ft-links a:hover { color: rgba(255,255,255,.7); }
-.ft-bot {
-  border-top: 1px solid rgba(255,255,255,.07);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
+.mstep.on .mstep-num {
+  background: linear-gradient(135deg, var(--green-mid), var(--green-bright));
+  border-color: var(--green-bright);
+  color: var(--white);
+  box-shadow: 0 0 20px rgba(82,183,136,.3);
 }
-.ft-copy { font-size: 12px; color: rgba(255,255,255,.22); }
-.ft-legal { display: flex; gap: 20px; }
-.ft-legal a { font-size: 12px; color: rgba(255,255,255,.22); }
-.ft-legal a:hover { color: rgba(255,255,255,.5); }
+.mstep-t { font-size: 14.5px; font-weight: 500; color: rgba(255,255,255,.45); transition: color .25s; }
+.mstep.on .mstep-t { color: var(--white); }
+.mstep-b { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.65; max-height: 0; overflow: hidden; transition: max-height .35s var(--ease-out), margin-top .2s; }
+.mstep.on .mstep-b { max-height: 120px; margin-top: 8px; }
 
-/* ── Responsive ─────────────────────────────────────────── */
+.mech-panel {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 28px;
+  backdrop-filter: blur(16px);
+  position: sticky;
+  top: 88px;
+}
+.mech-diagram {
+  height: 160px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.mech-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(82,183,136,.2);
+  animation: spin 8s linear infinite;
+}
+.mech-ring:nth-child(2) { animation-direction: reverse; animation-duration: 12s; }
+@keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+.mech-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--green-bright);
+  box-shadow: 0 0 8px var(--green-bright);
+}
+.mfact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.mfact {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 6px;
+  padding: 12px;
+  transition: background .2s;
+}
+.mfact:hover { background: rgba(82,183,136,.07); }
+.mfact-val { font-family: var(--serif); font-size: 20px; color: var(--white); }
+.mfact-lab { font-size: 9.5px; color: rgba(255,255,255,.3); letter-spacing: .05em; text-transform: uppercase; margin-top: 2px; }
+.mech-ref { font-size: 10.5px; color: rgba(255,255,255,.25); line-height: 1.55; border-top: 1px solid rgba(255,255,255,.07); padding-top: 12px; }
+
+/* ═══════════════════════════════════════════════════
+   BENTO BENEFITS
+═══════════════════════════════════════════════════ */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 60px;
+}
+.bento {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s var(--ease-spring), border-color .3s, box-shadow .3s;
+  cursor: pointer;
+}
+.bento::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(82,183,136,.08), transparent 60%);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.bento:hover { transform: translateY(-4px); border-color: rgba(82,183,136,.25); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.bento:hover::before { opacity: 1; }
+.bento.wide { grid-column: span 2; }
+.bento-icon-wrap {
+  width: 44px; height: 44px;
+  background: rgba(82,183,136,.1);
+  border: 1px solid rgba(82,183,136,.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: background .3s, box-shadow .3s;
+}
+.bento:hover .bento-icon-wrap { background: rgba(82,183,136,.18); box-shadow: 0 0 20px rgba(82,183,136,.2); }
+.bento-tag { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--green-bright); }
+.bento-title { font-family: var(--serif); font-size: 20px; color: var(--white); font-weight: 400; line-height: 1.25; }
+.bento.wide .bento-title { font-size: 26px; }
+.bento-body { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.65; }
+.bento-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--green-bright);
+  font-weight: 500;
+  margin-top: auto;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .25s, transform .25s;
+}
+.bento:hover .bento-arrow { opacity: 1; transform: translateX(0); }
+
+/* ═══════════════════════════════════════════════════
+   PROCESS TIMELINE
+═══════════════════════════════════════════════════ */
+.process-track {
+  display: flex;
+  gap: 0;
+  margin-top: 60px;
+  position: relative;
+}
+.process-track::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 28px; right: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--green-bright), rgba(82,183,136,.2));
+}
+.proc-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 0 20px;
+}
+.proc-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--forest), var(--green));
+  border: 2px solid var(--green-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(82,183,136,.2);
+  transition: box-shadow .3s, transform .3s var(--ease-spring);
+}
+.proc-step:hover .proc-num { box-shadow: 0 0 40px rgba(82,183,136,.4); transform: scale(1.08); }
+.proc-t { font-size: 14px; font-weight: 600; color: var(--white); }
+.proc-b { font-size: 12.5px; color: rgba(255,255,255,.35); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════
+   ETHICS
+═══════════════════════════════════════════════════ */
+.eth-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 60px;
+}
+.eth-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s var(--ease-spring);
+}
+.eth-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: .5;
+}
+.eth-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-3px); }
+.eth-n {
+  font-family: var(--serif);
+  font-size: 48px;
+  color: rgba(255,255,255,.07);
+  line-height: 1;
+}
+.eth-t { font-size: 15px; font-weight: 600; color: var(--white); }
+.eth-b { font-size: 13px; color: rgba(255,255,255,.4); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════════
+   REVIEWS
+═══════════════════════════════════════════════════ */
+.reviews-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+.rcard {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color .3s, transform .3s var(--ease-spring);
+}
+.rcard:hover { border-color: rgba(82,183,136,.25); transform: translateY(-3px); }
+.r-stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+.r-text { font-size: 13.5px; color: rgba(255,255,255,.55); line-height: 1.7; font-style: italic; }
+.r-author { font-size: 11px; color: rgba(255,255,255,.3); font-weight: 500; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.06); }
+.rating-hero {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.rating-big { font-family: var(--serif); font-size: 56px; color: var(--white); line-height: 1; }
+.rating-stars { color: var(--gold); font-size: 18px; }
+.rating-sub { font-size: 12px; color: rgba(255,255,255,.3); margin-top: 3px; }
+
+/* ═══════════════════════════════════════════════════
+   BLOG
+═══════════════════════════════════════════════════ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 56px;
+}
+.blog-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s var(--ease-spring), border-color .3s, box-shadow .3s;
+  cursor: pointer;
+}
+.blog-card:hover { transform: translateY(-5px); border-color: rgba(82,183,136,.25); box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+.blog-img {
+  height: 176px;
+  background: linear-gradient(135deg, var(--forest), rgba(15,45,30,.4));
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.blog-img-icon { font-size: 52px; opacity: .2; transition: transform .4s var(--ease-spring); }
+.blog-card:hover .blog-img-icon { transform: scale(1.15); }
+.blog-cat-tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: rgba(82,183,136,.2);
+  border: 1px solid rgba(82,183,136,.35);
+  color: var(--green-bright);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+.blog-body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.blog-cat { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--green-bright); }
+.blog-title { font-size: 14.5px; font-weight: 600; color: var(--white); line-height: 1.4; transition: color .2s; }
+.blog-card:hover .blog-title { color: var(--green-bright); }
+.blog-meta { font-size: 11px; color: rgba(255,255,255,.3); }
+.blog-exc { font-size: 12.5px; color: rgba(255,255,255,.35); line-height: 1.6; }
+
+/* ═══════════════════════════════════════════════════
+   CTA BAND
+═══════════════════════════════════════════════════ */
+.cta-band {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, var(--forest) 0%, #163d28 50%, var(--forest) 100%);
+  padding: 100px 48px;
+  text-align: center;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(82,183,136,.15), transparent 70%);
+  pointer-events: none;
+}
+.cta-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 2; }
+.cta-eyebrow {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 16px;
+  opacity: .7;
+}
+.cta-h2 {
+  font-family: var(--serif);
+  font-size: 52px;
+  color: var(--white);
+  font-weight: 400;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.cta-sub { font-size: 15px; color: rgba(255,255,255,.45); margin-bottom: 40px; font-weight: 300; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px; }
+.btn-cta-wh {
+  display: inline-block;
+  background: var(--white);
+  color: var(--forest);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 15px 40px;
+  border-radius: 4px;
+  letter-spacing: .04em;
+  transition: transform .25s var(--ease-spring), box-shadow .3s;
+}
+.btn-cta-wh:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+.btn-cta-ghost {
+  display: inline-block;
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  padding: 15px 32px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,.15);
+  transition: background .2s, color .2s;
+}
+.btn-cta-ghost:hover { background: rgba(255,255,255,.15); color: var(--white); }
+.cta-trust { display: flex; gap: 36px; justify-content: center; flex-wrap: wrap; }
+.cta-trust-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,.35); }
+.cta-trust-icon { font-size: 16px; }
+
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+footer {
+  position: relative;
+  z-index: 10;
+  background: #050504;
+  padding: 72px 48px 40px;
+  border-top: 1px solid var(--glass-border);
+}
+.ft-inner { max-width: 1140px; margin: 0 auto; }
+.ft-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+.ft-logo { margin-bottom: 16px; }
+.ft-logo img { height: 36px; width: auto; opacity: .9; }
+.ft-tag { font-size: 13px; color: rgba(255,255,255,.3); line-height: 1.7; max-width: 260px; margin-bottom: 22px; }
+.ft-soc { display: flex; gap: 10px; }
+.fsoc {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.3);
+  transition: border-color .2s, color .2s, background .2s, box-shadow .2s;
+}
+.fsoc:hover { border-color: var(--green-bright); color: var(--green-bright); background: rgba(82,183,136,.08); box-shadow: 0 0 16px rgba(82,183,136,.2); }
+.ft-h { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-bottom: 20px; }
+.ft-links { display: flex; flex-direction: column; gap: 10px; }
+.ft-links a { font-size: 13px; color: rgba(255,255,255,.35); transition: color .2s, padding-left .2s; }
+.ft-links a:hover { color: var(--green-bright); padding-left: 4px; }
+.ft-bot { border-top: 1px solid rgba(255,255,255,.06); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.ft-copy { font-size: 12px; color: rgba(255,255,255,.2); }
+.ft-certs { display: flex; gap: 10px; }
+.fcert {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 3px;
+  padding: 4px 12px;
+  font-size: 9.5px;
+  color: rgba(255,255,255,.25);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .hero h1 { font-size: 48px; }
-  .bio-grid, .ben-layout { grid-template-columns: 1fr; }
-  .bio-img, .ben-side { display: none; }
+  .hero-inner { grid-template-columns: 1fr; gap: 52px; }
+  .hero-product { max-width: 480px; }
+  .mech-grid { grid-template-columns: 1fr; }
+  .mech-panel { position: static; }
   .ft-cols { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   .topbar, .tb-r { display: none; }
   .nav { padding: 0 16px; }
   .nav-links { display: none; }
-  .hero { padding: 64px 20px 56px; }
+  .hero { padding: 64px 20px; }
   .hero h1 { font-size: 36px; }
-  .sec { padding: 56px 20px; }
-  .feat-grid, .prin-grid, .eth-row, .com-grid, .prod-grid { grid-template-columns: 1fr; }
-  .sec-h2 { font-size: 32px; }
+  .sec { padding: 64px 20px; }
+  .proof-row, .eth-row, .reviews-row, .blog-grid, .bento-grid { grid-template-columns: 1fr; }
+  .bento.wide { grid-column: span 1; }
+  .sec-h2 { font-size: 34px; }
+  .cta-band { padding: 64px 20px; }
+  .cta-h2 { font-size: 36px; }
   .ft-cols { grid-template-columns: 1fr; }
+  .process-track { flex-direction: column; }
+  .process-track::before { display: none; }
+  #cursor-dot, #cursor-ring { display: none; }
+  body { cursor: auto; }
+  button { cursor: auto; }
 }
 </style>
 </head>
-<body>
+<body class="noise">
 
-<!-- ── Topbar ──────────────────────────────────────────────── -->
+<!-- Cursor -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- Particle canvas -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- ── TOPBAR ─────────────────────────────────────────── -->
 <div class="topbar">
   <div class="tb-l">
     <a href="tel:+61494039662">+61 494 039 662</a>
@@ -567,16 +1202,19 @@ footer {
     <a href="mailto:support@penantia.com">support@penantia.com</a>
   </div>
   <div class="tb-r">
-    <a href="https://penantia.com/wishlist/">0 Wishlist</a>
+    <span class="tb-pill">Free AU shipping $99+</span>
     <div class="tb-sep"></div>
     <a href="https://penantia.com/order-tracking/">Track Order</a>
+    <div class="tb-sep"></div>
+    <a href="https://penantia.com/my-account/">Login</a>
   </div>
 </div>
 
-<!-- ── Navbar ──────────────────────────────────────────────── -->
-<nav class="nav">
+<!-- ── NAVBAR ──────────────────────────────────────────── -->
+<nav class="nav" id="nav">
   <a href="https://penantia.com/" class="nav-logo">
-    <img src="https://penantia.com/wp-content/uploads/2025/08/penantia-logo.png" alt="Penantia – Shilajit" height="40">
+    <img src="https://penantia.com/wp-content/uploads/2025/08/penantia-logo.png" alt="Penantia" height="38" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="nav-logo-text" style="display:none">Penantia</span>
   </a>
   <ul class="nav-links">
     <li><a href="https://penantia.com/" class="active">Home</a></li>
@@ -584,353 +1222,628 @@ footer {
     <li><a href="https://penantia.com/shop/">Shop</a></li>
     <li><a href="https://penantia.com/stockists/">Stockists</a></li>
     <li><a href="https://penantia.com/blog/">Blog</a></li>
-    <li><a href="https://penantia.com/contact-us/">Contact Us</a></li>
+    <li><a href="https://penantia.com/contact-us/">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <span class="nav-cart">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      0
-    </span>
-    <a href="https://penantia.com/my-account/" class="btn-login">Login / Sign Up</a>
+    <a href="https://penantia.com/cart/" class="nav-cart">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Cart (0)
+    </a>
+    <a href="https://penantia.com/shop/" class="btn-shop-now">Shop Now</a>
   </div>
 </nav>
 
-<!-- ── Badge marquee ────────────────────────────────────────── -->
-<div class="marquee-bar" role="marquee" aria-label="Product certifications">
+<!-- ── MARQUEE ─────────────────────────────────────────── -->
+<div class="marquee-bar">
   <div class="marquee-inner">
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Hand-Harvested at 15,000ft</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Batch COA Verified</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Heavy Metal Tested</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Heavy Metal Free</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Australian Owned</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>GMP Certified</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Cruelty Free</span>
-    <!-- duplicate for seamless loop -->
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Hand-Harvested at 15,000ft</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Batch COA Verified</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Heavy Metal Tested</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Heavy Metal Free</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Australian Owned</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>GMP Certified</span>
-    <span class="m-item"><span class="m-dot" aria-hidden="true"></span>Cruelty Free</span>
+    <span class="m-item"><span class="m-dot"></span>Hand-Harvested at 15,000ft</span>
+    <span class="m-item"><span class="m-dot"></span>95.2% Fulvic Acid</span>
+    <span class="m-item"><span class="m-dot"></span>Batch COA Verified</span>
+    <span class="m-item"><span class="m-dot"></span>Heavy Metal Free</span>
+    <span class="m-item"><span class="m-dot"></span>Australian Owned</span>
+    <span class="m-item"><span class="m-dot"></span>GMP Certified</span>
+    <span class="m-item"><span class="m-dot"></span>Cruelty Free</span>
+    <span class="m-item"><span class="m-dot"></span>Resin Form Only</span>
+    <span class="m-item"><span class="m-dot"></span>No Fillers or Additives</span>
+    <span class="m-item"><span class="m-dot"></span>Hand-Harvested at 15,000ft</span>
+    <span class="m-item"><span class="m-dot"></span>95.2% Fulvic Acid</span>
+    <span class="m-item"><span class="m-dot"></span>Batch COA Verified</span>
+    <span class="m-item"><span class="m-dot"></span>Heavy Metal Free</span>
+    <span class="m-item"><span class="m-dot"></span>Australian Owned</span>
+    <span class="m-item"><span class="m-dot"></span>GMP Certified</span>
+    <span class="m-item"><span class="m-dot"></span>Cruelty Free</span>
+    <span class="m-item"><span class="m-dot"></span>Resin Form Only</span>
+    <span class="m-item"><span class="m-dot"></span>No Fillers or Additives</span>
   </div>
 </div>
 
-<!-- ── Hero ─────────────────────────────────────────────────── -->
+<!-- ── HERO ───────────────────────────────────────────── -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-bg"></div>
   <div class="hero-inner">
-    <div class="hero-pill">
-      <span class="hero-pill-dot" aria-hidden="true"></span>
-      Pure Himalayan Shilajit Resin&nbsp;•&nbsp;Ashwagandha Resin Coming Soon&nbsp;•&nbsp;Ionic Minerals&nbsp;•&nbsp;Fulvic Acid
+    <div>
+      <div class="hero-eyebrow reveal">
+        <span class="eyebrow-dot"></span>
+        Himalayan Shilajit Resin · Ladakh, India · 15,000ft
+      </div>
+      <h1 class="reveal" data-delay="1">
+        We start with<br>
+        the <span class="accent">biology.</span><br>
+        <span class="muted">Not the product.</span>
+      </h1>
+      <p class="hero-sub reveal" data-delay="2">
+        Most people are mineral-depleted. Most supplements fail because the delivery mechanism is wrong. Ionic minerals. Fulvic acid transport. Resin form only.
+      </p>
+      <div class="hero-btns reveal" data-delay="3">
+        <a href="https://penantia.com/shop/" class="btn-primary-hero">
+          Shop Shilajit Resin →
+        </a>
+        <a href="https://penantia.com/blog/" class="btn-ghost-hero">
+          Read the science
+        </a>
+      </div>
+      <div class="hero-stats reveal" data-delay="4">
+        <div class="h-stat">
+          <div class="h-stat-val">95.2<span class="unit">%</span></div>
+          <div class="h-stat-lab">Fulvic acid</div>
+        </div>
+        <div class="h-stat">
+          <div class="h-stat-val">15K<span class="unit" style="font-size:14px;color:rgba(255,255,255,.35)"> ft</span></div>
+          <div class="h-stat-lab">Altitude</div>
+        </div>
+        <div class="h-stat">
+          <div class="h-stat-val">84<span class="unit" style="font-size:14px">+</span></div>
+          <div class="h-stat-lab">Ionic minerals</div>
+        </div>
+        <div class="h-stat">
+          <div class="h-stat-val">0.2<span class="unit" style="font-size:13px"> µm</span></div>
+          <div class="h-stat-lab">Filtration</div>
+        </div>
+      </div>
     </div>
-    <h1 class="serif">
-      The Supplement Industry Starts With a Product.
-      <span class="muted">We Start With the Biology.</span>
-    </h1>
-    <p class="hero-sub">Most people are mineral-depleted. Most supplements fail because the delivery mechanism is wrong. We fix that.</p>
-    <div class="hero-btns">
-      <a href="https://penantia.com/shop/" class="btn-hero-primary">Shop Now →</a>
-      <a href="https://penantia.com/about-us/" class="btn-hero-ghost">Why Penantia</a>
-    </div>
-  </div>
-</section>
 
-<!-- ── Explore Nature's Best ────────────────────────────────── -->
-<section class="sec sec-off">
-  <div class="ctr">
-    <p class="eyebrow">Explore Nature's Best</p>
-    <div class="feat-grid">
-      <div class="feat-cell">
-        <img class="feat-icon" src="https://penantia.com/wp-content/uploads/2026/03/apex.png" alt="Source from Himalayan Regions" width="52" height="52" loading="lazy">
-        <div class="feat-title">Source from Himalayan Regions</div>
+    <div class="hero-product reveal-scale" data-delay="2">
+      <div class="hp-top">
+        <div class="hp-badges">
+          <span class="hp-badge hp-badge-green">In stock</span>
+          <span class="hp-badge hp-badge-dark">COA verified</span>
+        </div>
+        <div>
+          <div class="hp-price">$120<sub> /20g</sub></div>
+          <div class="hp-price-note">~60 servings · 300mg each</div>
+        </div>
       </div>
-      <div class="feat-cell">
-        <img class="feat-icon" src="https://penantia.com/wp-content/uploads/2026/03/red-blood-cells.png" alt="Supports Cellular Health" width="52" height="52" loading="lazy">
-        <div class="feat-title">Supports Cellular Health</div>
-      </div>
-      <div class="feat-cell">
-        <img class="feat-icon" src="https://penantia.com/wp-content/uploads/2026/03/person-standing.png" alt="Boosts Energy and Stamina" width="52" height="52" loading="lazy">
-        <div class="feat-title">Boosts Energy &amp; Stamina</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── Products ─────────────────────────────────────────────── -->
-<section class="sec sec-white">
-  <div class="ctr">
-    <p class="eyebrow">Our Products</p>
-    <h2 class="sec-h2 serif">Pure. Potent. Proven.</h2>
-    <div class="prod-grid">
-      <div class="prod-card">
-        <div class="prod-img">
-          <img src="https://penantia.com/wp-content/uploads/2026/01/pr_1.png" alt="Himalayan Shilajit Resin" loading="lazy">
-        </div>
-        <div class="prod-body">
-          <div class="prod-name serif">Himalayan Shilajit Resin</div>
-          <div class="prod-desc">Ionic minerals and fulvic acid in resin form. The delivery mechanism that standard mineral supplements cannot match.</div>
-          <div class="prod-price">$120.00</div>
-          <a href="https://penantia.com/product/dynamically-enhanced-himalayan-shilajit-20-g/" class="btn-card">View Product</a>
+      <div class="hp-jar-zone">
+        <div class="hp-jar">
+          <div class="jar-lid"></div>
+          <div class="jar-body">
+            <div class="jar-name" style="font-family:'DM Serif Display',serif">Pure Himalayan<br>Shilajit Resin</div>
+            <div class="jar-sep"></div>
+            <div class="jar-sub">20g · Ladakh, India</div>
+            <div class="jar-mini-row">
+              <span class="jar-mini">95.2% FA</span>
+              <span class="jar-mini">Lab tested</span>
+            </div>
+            <div class="jar-glow"></div>
+          </div>
         </div>
       </div>
-      <div class="prod-card">
-        <div class="prod-img">
-          <img src="https://penantia.com/wp-content/uploads/2026/01/pr_2.png" alt="Ashwagandha Extract" loading="lazy">
-        </div>
-        <div class="prod-body">
-          <div class="prod-name serif">Ashwagandha Extract</div>
-          <div class="prod-desc">Cortisol regulation at the HPA axis level. In resin form for the same reason as Shilajit: higher bioavailability than any capsule or powder equivalent.</div>
-          <a href="https://penantia.com/ashwagandha-coming-soon/" class="btn-card-ol">Join the Waitlist</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── Feature icons row 2 ──────────────────────────────────── -->
-<section class="sec sec-off" style="padding-top:0">
-  <div class="ctr">
-    <div class="feat-grid" style="margin-top:0">
-      <div class="feat-cell">
-        <img class="feat-icon" src="https://penantia.com/wp-content/uploads/2026/03/sleep.png" alt="Promotes Restful Sleep" width="52" height="52" loading="lazy">
-        <div class="feat-title">Promotes Restful Sleep</div>
+      <div class="hp-specs">
+        <div class="hp-spec"><div class="hp-spec-val" style="font-family:'DM Serif Display',serif">95.2%</div><div class="hp-spec-key">Fulvic Acid</div></div>
+        <div class="hp-spec"><div class="hp-spec-val" style="font-family:'DM Serif Display',serif">84+</div><div class="hp-spec-key">Minerals</div></div>
+        <div class="hp-spec"><div class="hp-spec-val">Triphala</div><div class="hp-spec-key">Purification</div></div>
+        <div class="hp-spec"><div class="hp-spec-val">Solar</div><div class="hp-spec-key">Extraction</div></div>
       </div>
-      <div class="feat-cell">
-        <img class="feat-icon" src="https://penantia.com/wp-content/uploads/2026/03/mental-wellness.png" alt="Reduces Stress and Anxiety" width="52" height="52" loading="lazy">
-        <div class="feat-title">Reduces Stress &amp; Anxiety</div>
-      </div>
-      <div class="feat-cell">
-        <img class="feat-icon" src="https://penantia.com/wp-content/uploads/2026/03/mindfulness.png" alt="Calms Mind and Body" width="52" height="52" loading="lazy">
-        <div class="feat-title">Calms Mind &amp; Body</div>
+
+      <div class="hp-buy">
+        <div class="hp-shipping">🚚 Free AU shipping $99+ · 30-day guarantee</div>
+        <a href="https://penantia.com/product/dynamically-enhanced-himalayan-shilajit-20-g/" class="btn-add-cart">Add to Cart →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Biology section ──────────────────────────────────────── -->
-<section class="sec sec-white">
-  <div class="ctr">
-    <div class="bio-grid">
-      <div class="bio-img">
-        <img src="https://penantia.com/wp-content/uploads/2026/01/ChatGPT-Image-Nov-28-2025-03_27_32-PM.png" alt="Penantia Shilajit resin product" loading="lazy">
-      </div>
-      <div>
-        <p class="eyebrow">We started with the biology</p>
-        <h2 class="sec-h2 serif">We started with the biology. <span class="muted">Not the product.</span></h2>
-        <p class="bio-lede">Most supplement companies start with something cheap to manufacture and work backwards to a label claim. We started with the question of what the body actually needs and why most supplements fail to deliver it.</p>
-        <div class="bio-point">
-          <div class="bio-pt-t">Ionic Delivery</div>
-          <div class="bio-pt-b">Not capsules. Not powder. Resin form delivers active compounds in the state the body absorbs directly.</div>
-        </div>
-        <div class="bio-point">
-          <div class="bio-pt-t">Fulvic Acid Transport</div>
-          <div class="bio-pt-b">The molecular carrier that moves ionic minerals through the gut wall and into cells. The mechanism most supplements skip entirely.</div>
-        </div>
-        <div class="bio-point">
-          <div class="bio-pt-t">Resin Form Only</div>
-          <div class="bio-pt-b">The highest bioavailability format available. Bypasses the dissolution step that degrades powder and capsule forms before absorption begins.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Standards / Principles ───────────────────────────────── -->
-<section class="sec sec-off">
-  <div class="ctr">
-    <p class="eyebrow">Our Principles</p>
-    <h2 class="sec-h2 serif">Standards You Can Trust</h2>
-    <div class="prin-grid">
-      <div class="prin-cell">
-        <div class="prin-icon">✓</div>
-        <div class="prin-t">GMP Certified</div>
-        <div class="prin-b">Produced in Good Manufacturing Practice certified facilities, ensuring consistency and quality in every batch.</div>
-      </div>
-      <div class="prin-cell">
-        <div class="prin-icon">✦</div>
-        <div class="prin-t">Natural Form</div>
-        <div class="prin-b">Never Synthetic: No fillers, binders, or synthetic additives. Resin form only. What you take is what the geological process produced.</div>
-      </div>
-      <div class="prin-cell">
-        <div class="prin-icon">⬡</div>
-        <div class="prin-t">Purity Verified</div>
-        <div class="prin-b">Batch-tested by accredited Australian laboratories. Certificate of analysis available on request for every batch released.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Ethics ────────────────────────────────────────────────── -->
+<!-- ── PROOF ───────────────────────────────────────────── -->
 <section class="sec sec-dark">
   <div class="ctr">
-    <p class="eyebrow light">Respect for All Life</p>
-    <h2 class="sec-h2 serif wh">Ethics in Every Step</h2>
+    <div class="section-eyebrow reveal">By the numbers</div>
+    <h2 class="sec-h2 reveal" data-delay="1">The science is <span class="gradient">not optional.</span></h2>
+    <p class="sec-sub reveal" data-delay="2">Every claim links to a peer-reviewed study or a batch certificate of analysis. No marketing claims without evidence.</p>
+    <div class="proof-row">
+      <div class="proof-cell reveal" data-delay="1">
+        <div class="proof-num">95.2<span class="proof-unit">%</span></div>
+        <div class="proof-title">Lab-certified fulvic acid</div>
+        <div class="proof-body">Verified per batch by accredited Australian laboratories. Certificate of analysis available on every batch released.</div>
+      </div>
+      <div class="proof-cell reveal" data-delay="2">
+        <div class="proof-num">84<span class="proof-unit">+</span></div>
+        <div class="proof-title">Ionic trace minerals</div>
+        <div class="proof-body">Delivered in ionic state via fulvic acid transport — the form cells absorb directly, without a conversion step.</div>
+      </div>
+      <div class="proof-cell reveal" data-delay="3">
+        <div class="proof-num">0.2<span class="proof-unit">µm</span></div>
+        <div class="proof-title">Membrane filtration grade</div>
+        <div class="proof-body">The same standard used in hospital-grade water purification. Removes microbes and nano-sized heavy metal particles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MECHANISM ───────────────────────────────────────── -->
+<section class="sec sec-glass">
+  <div class="ctr">
+    <div class="section-eyebrow reveal">The mechanism</div>
+    <h2 class="sec-h2 reveal" data-delay="1">Why delivery form <span class="gradient">changes everything.</span></h2>
+    <div class="mech-grid">
+      <div class="mech-steps reveal-left">
+        <div class="mstep on" onclick="pickStep(0)">
+          <div class="mstep-num">01</div>
+          <div>
+            <div class="mstep-t">Ionic mineral state</div>
+            <div class="mstep-b">Minerals in ionic form carry an electrical charge, allowing the gut wall to transport them actively. Mineral oxides absorb at 4–22%. Ionic minerals skip the conversion step entirely.</div>
+          </div>
+        </div>
+        <div class="mstep" onclick="pickStep(1)">
+          <div class="mstep-num">02</div>
+          <div>
+            <div class="mstep-t">Fulvic acid as the carrier</div>
+            <div class="mstep-b">Fulvic acid chelates ionic minerals and actively transports them across the intestinal membrane — a fundamentally different absorption pathway that bypasses the bottlenecks where most supplements are lost.</div>
+          </div>
+        </div>
+        <div class="mstep" onclick="pickStep(2)">
+          <div class="mstep-num">03</div>
+          <div>
+            <div class="mstep-t">Resin form only</div>
+            <div class="mstep-b">Capsule and powder forms introduce a dissolution step that degrades active compounds. Resin delivers everything in solution — the form the body encounters it directly — with zero degradation.</div>
+          </div>
+        </div>
+        <div class="mstep" onclick="pickStep(3)">
+          <div class="mstep-num">04</div>
+          <div>
+            <div class="mstep-t">Mitochondrial ATP support</div>
+            <div class="mstep-b">Clinical studies (PMID 23439107, 30850811) demonstrate purified Shilajit increases mitochondrial ATP output by supplying the mineral substrate the cell requires to produce energy at the source.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mech-panel reveal-scale" data-delay="2">
+        <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:14px" id="mech-title">Ionic mineral absorption</div>
+        <div class="mech-diagram" id="mech-diagram">
+          <div class="mech-ring" id="r1" style="width:130px;height:130px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <div class="mech-ring" id="r2" style="width:80px;height:80px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <div class="mech-dot" style="width:8px;height:8px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+          <div class="mech-dot" style="width:5px;height:5px;top:30%;left:65%;transform:translate(-50%,-50%);opacity:.6"></div>
+          <div class="mech-dot" style="width:5px;height:5px;top:70%;left:35%;transform:translate(-50%,-50%);opacity:.6"></div>
+        </div>
+        <div class="mfact-grid">
+          <div class="mfact"><div class="mfact-val" id="mf1" style="font-family:'DM Serif Display',serif">4–22%</div><div class="mfact-lab">Standard absorption</div></div>
+          <div class="mfact"><div class="mfact-val" id="mf2" style="font-family:'DM Serif Display',serif">Direct</div><div class="mfact-lab">Ionic pathway</div></div>
+          <div class="mfact"><div class="mfact-val" id="mf3" style="font-family:'DM Serif Display',serif">0.2µm</div><div class="mfact-lab">Filtration</div></div>
+          <div class="mfact"><div class="mfact-val" id="mf4" style="font-family:'DM Serif Display',serif">2-step</div><div class="mfact-lab">Purification</div></div>
+        </div>
+        <div class="mech-ref">Peer-reviewed evidence: PMID 23439107, 30850811. Not evaluated by the TGA. Not intended to diagnose, treat, cure, or prevent any disease.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BENEFITS BENTO ──────────────────────────────────── -->
+<section class="sec sec-dark">
+  <div class="ctr">
+    <div class="section-eyebrow reveal">Why people take Shilajit</div>
+    <h2 class="sec-h2 reveal" data-delay="1">Most come for one reason.<br><span class="gradient">Most stay for four.</span></h2>
+    <div class="bento-grid">
+      <div class="bento wide reveal" data-delay="1" onmousemove="bentoPara(this,event)" onclick="location.href='https://penantia.com/blog/'">
+        <div class="bento-icon-wrap">⚡</div>
+        <div class="bento-tag">Energy & stamina</div>
+        <h3 class="bento-title" style="font-family:'DM Serif Display',serif">Cellular energy. Not borrowed stimulation.</h3>
+        <p class="bento-body">Ionic minerals support ATP production in mitochondria directly — not by stimulating the system but by supplying what it needs to generate energy properly. If you're always tired despite sleep, the cause is almost always cellular.</p>
+        <span class="bento-arrow">Read the research →</span>
+      </div>
+      <div class="bento reveal" data-delay="2" onmousemove="bentoPara(this,event)" onclick="location.href='https://penantia.com/blog/magnesium-glycinate-for-sleep-why-this-one-mineral-form-changes-how-you-sleep-at-the-cellular-level/'">
+        <div class="bento-icon-wrap">🌙</div>
+        <div class="bento-tag">Deeper sleep</div>
+        <h3 class="bento-title" style="font-family:'DM Serif Display',serif">Ionic magnesium for sleep architecture.</h3>
+        <p class="bento-body">Magnesium governs GABA receptor function and melatonin production. Most supplements absorb at a fraction of the label dose. Shilajit delivers ionic magnesium via fulvic acid — the form that reaches the cell.</p>
+        <span class="bento-arrow">Read the research →</span>
+      </div>
+      <div class="bento reveal" data-delay="1" onmousemove="bentoPara(this,event)" onclick="location.href='https://penantia.com/blog/high-cortisol-symptoms-why-your-body-is-stuck-in-a-stress-cycle-and-what-actually-breaks-it/'">
+        <div class="bento-icon-wrap">📈</div>
+        <div class="bento-tag">Stress & recovery</div>
+        <h3 class="bento-title" style="font-family:'DM Serif Display',serif">Every cortisol spike burns minerals.</h3>
+        <p class="bento-body">High cortisol depletes magnesium and zinc. Shilajit replenishes what stress burns through and supports HPA axis regulation as a clinically studied adaptogen.</p>
+        <span class="bento-arrow">Read the research →</span>
+      </div>
+      <div class="bento reveal" data-delay="2" onmousemove="bentoPara(this,event)" onclick="location.href='https://penantia.com/blog/weak-immune-system-symptoms-why-you-keep-getting-sick-and-what-your-body-is-actually-missing/'">
+        <div class="bento-icon-wrap">🛡</div>
+        <div class="bento-tag">Immune function</div>
+        <h3 class="bento-title" style="font-family:'DM Serif Display',serif">Zinc drives T-cell production.</h3>
+        <p class="bento-body">Zinc oxide absorbs at ~20%. Ionic zinc via fulvic acid reaches the cell at a fundamentally different rate. Fewer illnesses is not coincidence.</p>
+        <span class="bento-arrow">Read the research →</span>
+      </div>
+      <div class="bento reveal" data-delay="3" onmousemove="bentoPara(this,event)" onclick="location.href='https://penantia.com/ashwagandha-coming-soon/'">
+        <div class="bento-icon-wrap">🌿</div>
+        <div class="bento-tag">Coming soon</div>
+        <h3 class="bento-title" style="font-family:'DM Serif Display',serif">Ashwagandha Resin.</h3>
+        <p class="bento-body">Cortisol regulation at the HPA axis level. In resin form for the same reason as Shilajit. Join the waitlist to be first.</p>
+        <span class="bento-arrow">Join the waitlist →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ─────────────────────────────────────────── -->
+<section class="sec sec-glass">
+  <div class="ctr">
+    <div class="section-eyebrow reveal">From mountain to jar</div>
+    <h2 class="sec-h2 reveal" data-delay="1">Four steps. <span class="gradient">None are shortcuts.</span></h2>
+    <div class="process-track">
+      <div class="proc-step reveal" data-delay="1">
+        <div class="proc-num">01</div>
+        <div class="proc-t">Ethical harvest</div>
+        <div class="proc-b">Hand-collected from micro-lots in Ladakh at 15,000ft. Seasonal, fair-wage, no industrial extraction.</div>
+      </div>
+      <div class="proc-step reveal" data-delay="2">
+        <div class="proc-num">02</div>
+        <div class="proc-t">Solar extraction</div>
+        <div class="proc-b">Slow extraction using natural sunlight. No ovens, no solvents. Preserves the fulvic acid chains.</div>
+      </div>
+      <div class="proc-step reveal" data-delay="3">
+        <div class="proc-num">03</div>
+        <div class="proc-t">Dual purification</div>
+        <div class="proc-b">Triphala gravity sedimentation + 0.2µm membrane filtration. Both, in sequence. Pharmaceutical grade.</div>
+      </div>
+      <div class="proc-step reveal" data-delay="4">
+        <div class="proc-num">04</div>
+        <div class="proc-t">Lab tested</div>
+        <div class="proc-b">Every batch tested by accredited Australian labs. Heavy metals, fulvic acid, microbial. COA on request.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ETHICS ──────────────────────────────────────────── -->
+<section class="sec sec-dark">
+  <div class="ctr">
+    <div class="section-eyebrow reveal">Ethics in every step</div>
+    <h2 class="sec-h2 reveal" data-delay="1">We measure impact <span class="gradient">beyond the jar.</span></h2>
     <div class="eth-row">
-      <div class="eth-card">
+      <div class="eth-card reveal" data-delay="1">
         <div class="eth-n">01</div>
         <div class="eth-t">No Animal Harm</div>
-        <div class="eth-b">We ensure that no process harms animals. Our testing and sourcing are 100% cruelty-free.</div>
+        <div class="eth-b">100% cruelty-free across every stage. Testing and sourcing involve no harm to animals, without exception.</div>
       </div>
-      <div class="eth-card">
+      <div class="eth-card reveal" data-delay="2">
         <div class="eth-n">02</div>
         <div class="eth-t">Responsible Sourcing</div>
-        <div class="eth-b">Direct partnerships with farmers ensure fair wages and sustainable harvesting methods.</div>
+        <div class="eth-b">Direct partnerships with ethical harvesters in Ladakh. Fair wages, seasonal harvesting, minimal ecological footprint.</div>
       </div>
-      <div class="eth-card">
+      <div class="eth-card reveal" data-delay="3">
         <div class="eth-n">03</div>
         <div class="eth-t">Community Support</div>
-        <div class="eth-b">A portion of every purchase supports NGO-backed initiatives for disabled individuals in India.</div>
+        <div class="eth-b">A portion of every purchase funds NGO-backed programs providing food, shelter, and employment for disabled individuals in India.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Benefits accordion ────────────────────────────────────── -->
-<section class="sec sec-white">
+<!-- ── REVIEWS ─────────────────────────────────────────── -->
+<section class="sec sec-glass">
   <div class="ctr">
-    <p class="eyebrow">Energy Matters</p>
-    <h2 class="sec-h2 serif">Why People Take Shilajit.</h2>
-    <p class="sec-sub">Most people come for one reason. Most stay for four. Shilajit is one of the few adaptogen supplements where the mechanism explains every benefit.</p>
-    <div class="ben-layout">
-      <div class="ben-side">
-        <img src="https://penantia.com/wp-content/uploads/2025/08/61Xll-L9sSL._SL1000_.jpg" alt="Penantia Shilajit Resin jar" loading="lazy">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:0">
+      <div>
+        <div class="section-eyebrow reveal">Customer reviews</div>
+        <h2 class="sec-h2 reveal" data-delay="1" style="margin-bottom:0">What people <span class="gradient">say.</span></h2>
       </div>
-      <div class="ben-list">
-        <div class="ben-item on" onclick="toggleBen(this)">
-          <div class="ben-num">01</div>
-          <div class="ben-content">
-            <div class="ben-t">Energy and Stamina</div>
-            <div class="ben-b">If you are always tired despite adequate sleep, the cause is almost always cellular rather than lifestyle. Ionic minerals support ATP production directly. When those minerals are depleted, energy drops regardless of how much you sleep or how well you eat. Shilajit replenishes them in the form the cell actually absorbs.</div>
-            <a class="ben-link" href="https://penantia.com/blog/why-am-i-always-tired-cellular-energy-explained/">Research Article — Why you are always tired →</a>
+      <div class="reveal" data-delay="2">
+        <div class="rating-hero">
+          <span class="rating-big">4.5</span>
+          <div>
+            <div class="rating-stars">★★★★½</div>
+            <div class="rating-sub">Based on verified purchases</div>
           </div>
         </div>
-        <div class="ben-item" onclick="toggleBen(this)">
-          <div class="ben-num">02</div>
-          <div class="ben-content">
-            <div class="ben-t">Deeper Sleep</div>
-            <div class="ben-b">Ionic magnesium is one of the most critical inputs for deep sleep architecture. Most magnesium supplements deliver very little of it to the cell because the form is wrong. Shilajit delivers magnesium in its ionic state via fulvic acid transport.</div>
-            <a class="ben-link" href="https://penantia.com/blog/magnesium-glycinate-for-sleep-why-this-one-mineral-form-changes-how-you-sleep-at-the-cellular-level/">Research Article — Why magnesium glycinate works for sleep →</a>
-          </div>
-        </div>
-        <div class="ben-item" onclick="toggleBen(this)">
-          <div class="ben-num">03</div>
-          <div class="ben-content">
-            <div class="ben-t">Stress and Recovery</div>
-            <div class="ben-b">Every cortisol spike burns through magnesium and zinc. The depletion makes the next stress response harder to recover from. Shilajit replenishes what stress depletes and as an adaptogen supports HPA axis regulation.</div>
-            <a class="ben-link" href="https://penantia.com/blog/high-cortisol-symptoms-why-your-body-is-stuck-in-a-stress-cycle-and-what-actually-breaks-it/">Research Article — How cortisol depletes your minerals →</a>
-          </div>
-        </div>
-        <div class="ben-item" onclick="toggleBen(this)">
-          <div class="ben-num">04</div>
-          <div class="ben-content">
-            <div class="ben-t">Immunity Function</div>
-            <div class="ben-b">Zinc drives T-cell production. Most immune support supplements absorb at around 20% because zinc oxide is the cheapest form. Ionic zinc delivered via fulvic acid reaches the cell at a fundamentally different absorption rate.</div>
-            <a class="ben-link" href="https://penantia.com/blog/weak-immune-system-symptoms-why-you-keep-getting-sick-and-what-your-body-is-actually-missing/">Research Article — Why your immune supplement may not be working →</a>
-          </div>
-        </div>
+      </div>
+    </div>
+    <div class="reviews-row" style="margin-top:40px">
+      <div class="rcard reveal" data-delay="1">
+        <div class="r-stars">★★★★★</div>
+        <div class="r-text">"Feeling noticeably better after one month. Energy levels are different in a way that's hard to attribute to anything else I changed."</div>
+        <div class="r-author">Sam · Verified buyer · November 2025</div>
+      </div>
+      <div class="rcard reveal" data-delay="2">
+        <div class="r-stars">★★★★★</div>
+        <div class="r-text">"Impressed by the quality and transparency. The COA documentation shows Penantia actually means what they say about purity."</div>
+        <div class="r-author">Winston · Verified buyer · November 2025</div>
+      </div>
+      <div class="rcard reveal" data-delay="3">
+        <div class="r-stars">★★★★★</div>
+        <div class="r-text">"Was skeptical. This Shilajit completely won me over. Started for immunity and it exceeded every expectation I had going in."</div>
+        <div class="r-author">Amazon AU · Verified purchase</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── Health over profit ────────────────────────────────────── -->
-<section class="sec sec-off">
+<!-- ── BLOG ────────────────────────────────────────────── -->
+<section class="sec sec-dark">
   <div class="ctr">
-    <p class="eyebrow">Our Commitment</p>
-    <h2 class="sec-h2 serif">Health Over Profit.</h2>
-    <div class="com-grid">
-      <div class="com-cell">
-        <div class="com-t">Purity First</div>
-        <div class="com-b">Start With Biology: Every product begins with the question of what the body actually needs. Not what is cheap to manufacture or easy to label.</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px">
+      <div>
+        <div class="section-eyebrow reveal">Research articles</div>
+        <h2 class="sec-h2 reveal" data-delay="1" style="margin-bottom:0">The biology behind <span class="gradient">every benefit.</span></h2>
       </div>
-      <div class="com-cell">
-        <div class="com-t">Transparent Sourcing</div>
-        <div class="com-b">Deliver What the Label Claims: Form and delivery mechanism determine biological outcome. We do not release a product unless the form genuinely delivers the stated benefit.</div>
+      <a href="https://penantia.com/blog/" class="reveal" data-delay="2" style="font-size:13px;color:rgba(82,183,136,.8);font-weight:500;transition:color .2s">View all 30 articles →</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal" data-delay="1" onclick="location.href='https://penantia.com/blog/why-am-i-always-tired-cellular-energy-explained/'">
+        <div class="blog-img">
+          <span class="blog-cat-tag">Energy</span>
+          <span class="blog-img-icon">⚡</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Cellular energy</div>
+          <div class="blog-title">Always tired despite sleeping? Here is what is actually happening.</div>
+          <div class="blog-meta">Penantia Research Team · May 2026</div>
+          <div class="blog-exc">Chronic fatigue that doesn't respond to rest is almost always cellular rather than lifestyle.</div>
+        </div>
       </div>
-      <div class="com-cell">
-        <div class="com-t">True Wellness</div>
-        <div class="com-b">Verify Every Batch: Independent laboratory testing on every production batch. Certificate of analysis available on request. No batch released without a passing COA.</div>
+      <div class="blog-card reveal" data-delay="2" onclick="location.href='https://penantia.com/blog/high-cortisol-symptoms-why-your-body-is-stuck-in-a-stress-cycle-and-what-actually-breaks-it/'">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1a3a2a,rgba(20,45,30,.4))">
+          <span class="blog-cat-tag">Stress</span>
+          <span class="blog-img-icon">📈</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Cortisol & stress</div>
+          <div class="blog-title">High cortisol symptoms: why your body is stuck in a stress cycle.</div>
+          <div class="blog-meta">Penantia Research Team · March 2026</div>
+          <div class="blog-exc">Every cortisol spike depletes magnesium and zinc. The cycle, and what actually breaks it.</div>
+        </div>
+      </div>
+      <div class="blog-card reveal" data-delay="3" onclick="location.href='https://penantia.com/blog/magnesium-glycinate-for-sleep-why-this-one-mineral-form-changes-how-you-sleep-at-the-cellular-level/'">
+        <div class="blog-img" style="background:linear-gradient(135deg,#0f2030,rgba(15,30,50,.4))">
+          <span class="blog-cat-tag">Sleep</span>
+          <span class="blog-img-icon">🌙</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Sleep science</div>
+          <div class="blog-title">Magnesium glycinate for sleep: why the mineral form changes everything.</div>
+          <div class="blog-meta">Penantia Research Team · March 2026</div>
+          <div class="blog-exc">Ionic magnesium is critical for deep sleep architecture. Why form determines outcome.</div>
+        </div>
       </div>
     </div>
-    <div class="com-tagline serif">Biology first. Form second. Proof third.</div>
   </div>
 </section>
 
-<!-- ── CTA ───────────────────────────────────────────────────── -->
+<!-- ── CTA ─────────────────────────────────────────────── -->
 <div class="cta-band">
-  <h2 class="serif">Shop Penantia Shilajit</h2>
-  <p>Pure Himalayan Shilajit Resin — 20g, ~60 servings. $120. Free shipping on Australian orders over $99.</p>
-  <div class="cta-btns">
-    <a href="https://penantia.com/shop/" class="btn-cta-wh">Shop Now →</a>
-    <a href="https://penantia.com/blog/" class="btn-cta-gh">Read the Research</a>
+  <div class="cta-inner">
+    <div class="cta-eyebrow reveal">Start today</div>
+    <h2 class="cta-h2 reveal" data-delay="1">Biology first.<br>Form second. <span style="background:linear-gradient(135deg,#52b788,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Proof third.</span></h2>
+    <p class="cta-sub reveal" data-delay="2">Pure Himalayan Shilajit Resin — 20g, ~60 servings. $120. Free shipping on Australian orders over $99.</p>
+    <div class="cta-btns reveal" data-delay="3">
+      <a href="https://penantia.com/product/dynamically-enhanced-himalayan-shilajit-20-g/" class="btn-cta-wh">Shop Shilajit Resin — $120</a>
+      <a href="https://penantia.com/blog/" class="btn-cta-ghost">Read the research</a>
+    </div>
+    <div class="cta-trust reveal" data-delay="4">
+      <span class="cta-trust-item"><span class="cta-trust-icon">🚚</span> Free AU shipping $99+</span>
+      <span class="cta-trust-item"><span class="cta-trust-icon">↩</span> 30-day guarantee</span>
+      <span class="cta-trust-item"><span class="cta-trust-icon">🔒</span> Secure checkout</span>
+      <span class="cta-trust-item"><span class="cta-trust-icon">✓</span> Batch COA verified</span>
+    </div>
   </div>
 </div>
 
-<!-- ── Footer ────────────────────────────────────────────────── -->
+<!-- ── FOOTER ──────────────────────────────────────────── -->
 <footer>
   <div class="ft-inner">
     <div class="ft-cols">
       <div>
-        <img class="ft-logo" src="https://penantia.com/wp-content/uploads/2026/01/penantia-primary-logo-white-rgb-400px-w-72ppi.png" alt="Penantia" height="36">
-        <div class="ft-tag">Health over profit. Every product reflects our commitment to purity, transparency, and integrity.</div>
+        <div class="ft-logo">
+          <img src="https://penantia.com/wp-content/uploads/2026/01/penantia-primary-logo-white-rgb-400px-w-72ppi.png" alt="Penantia" height="36" onerror="this.style.display='none'">
+        </div>
+        <div class="ft-tag">Health over profit. Every product reflects our commitment to purity, transparency, and integrity. Australian owned.</div>
         <div class="ft-soc">
-          <a href="https://www.instagram.com/penantia_official/" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Instagram">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <a href="https://www.instagram.com/penantia_official/" target="_blank" rel="noopener" class="fsoc" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="https://www.facebook.com/PenantiaOfficial/" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="Facebook">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <a href="https://www.facebook.com/PenantiaOfficial/" target="_blank" rel="noopener" class="fsoc" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
-          <a href="https://x.com/penantiaglobal" target="_blank" rel="noopener noreferrer" class="fsoc" aria-label="X / Twitter">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          <a href="https://x.com/penantiaglobal" target="_blank" rel="noopener" class="fsoc" aria-label="X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
           </a>
         </div>
       </div>
       <div>
-        <div class="ft-h">Quick Links</div>
+        <div class="ft-h">Quick links</div>
         <div class="ft-links">
           <a href="https://penantia.com/">Home</a>
           <a href="https://penantia.com/about-us/">About Us</a>
           <a href="https://penantia.com/shop/">Shop</a>
           <a href="https://penantia.com/stockists/">Stockists</a>
-          <a href="https://penantia.com/contact-us/">Contact Us</a>
+          <a href="https://penantia.com/contact-us/">Contact</a>
         </div>
       </div>
       <div>
         <div class="ft-h">Explore</div>
         <div class="ft-links">
-          <a href="https://penantia.com/#trust-ourselves">Trust Ourselves</a>
-          <a href="https://penantia.com/#our-principles">Our Principles</a>
-          <a href="https://penantia.com/#respect-life">Respect for All Life</a>
-          <a href="https://penantia.com/#energy-matters">Energy Matters</a>
-          <a href="https://penantia.com/#our-commitment">Our Commitment</a>
+          <a href="https://penantia.com/blog/">Blog</a>
+          <a href="https://penantia.com/ashwagandha-coming-soon/">Ashwagandha waitlist</a>
+          <a href="https://penantia.com/order-tracking/">Track order</a>
+          <a href="https://penantia.com/about-us/">About Penantia</a>
         </div>
       </div>
       <div>
-        <div class="ft-h">Our Privacy Policy</div>
+        <div class="ft-h">Legal</div>
         <div class="ft-links">
-          <a href="https://penantia.com/penantia-shipping-policy/">Shipping Policy</a>
-          <a href="https://penantia.com/refund_returns/">Refund &amp; Return Policy</a>
-          <a href="https://penantia.com/privacy-policy-2/">Privacy Policy</a>
-          <a href="https://penantia.com/delivery-information/">Delivery Information</a>
-          <a href="https://penantia.com/penantia-terms-and-conditions/">Terms and Conditions</a>
+          <a href="https://penantia.com/penantia-shipping-policy/">Shipping policy</a>
+          <a href="https://penantia.com/refund_returns/">Refund & returns</a>
+          <a href="https://penantia.com/privacy-policy-2/">Privacy policy</a>
+          <a href="https://penantia.com/delivery-information/">Delivery info</a>
+          <a href="https://penantia.com/penantia-terms-and-conditions/">Terms</a>
         </div>
       </div>
     </div>
     <div class="ft-bot">
-      <div class="ft-copy">© 2026 Penantia. All rights reserved.</div>
-      <div class="ft-legal">
-        <a href="https://penantia.com/privacy-policy-2/">Privacy Policy</a>
-        <a href="https://penantia.com/penantia-terms-and-conditions/">Terms of Service</a>
+      <div class="ft-copy">© 2026 Penantia. All rights reserved. Australian owned.</div>
+      <div class="ft-certs">
+        <span class="fcert">GMP Certified</span>
+        <span class="fcert">AU Lab Tested</span>
+        <span class="fcert">Heavy Metal Free</span>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-function toggleBen(el) {
-  document.querySelectorAll('.ben-item').forEach(b => b.classList.remove('on'));
-  el.classList.add('on');
+/* ── CUSTOM CURSOR ──────────────────────────────────── */
+const dot = document.getElementById('cursor-dot');
+const ring = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+});
+
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
+  requestAnimationFrame(animateRing);
 }
+animateRing();
+
+document.querySelectorAll('a, button, .bento, .rcard, .blog-card, .proc-step, .eth-card, .proof-cell').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+/* ── PARTICLE SYSTEM ────────────────────────────────── */
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+function createParticle() {
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 1.5 + 0.3,
+    speedX: (Math.random() - 0.5) * 0.3,
+    speedY: -Math.random() * 0.4 - 0.1,
+    opacity: Math.random() * 0.5 + 0.1,
+    life: 0,
+    maxLife: Math.random() * 400 + 200,
+  };
+}
+
+for (let i = 0; i < 120; i++) particles.push(createParticle());
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p, i) => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+    p.life++;
+    const fade = p.life < 40 ? p.life / 40 : p.life > p.maxLife - 40 ? (p.maxLife - p.life) / 40 : 1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(82,183,136,${p.opacity * fade})`;
+    ctx.fill();
+    if (p.life >= p.maxLife || p.y < 0) particles[i] = createParticle();
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+/* ── NAVBAR SCROLL ──────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ── SCROLL REVEAL ──────────────────────────────────── */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => observer.observe(el));
+
+/* ── MECHANISM ACCORDION ────────────────────────────── */
+const mechData = [
+  { title: 'Ionic mineral absorption', f1: '4–22%', f2: 'Direct', f3: '0.2µm', f4: '2-step' },
+  { title: 'Fulvic acid transport', f1: 'Chelation', f2: 'Active', f3: '84+ min', f4: 'Ionic' },
+  { title: 'Resin bioavailability', f1: 'Zero loss', f2: 'Resin', f3: 'No caps', f4: 'Solar' },
+  { title: 'Mitochondrial ATP', f1: 'ATP+', f2: 'Clinical', f3: '2 PMIDs', f4: 'Peer rev' },
+];
+
+function pickStep(i) {
+  document.querySelectorAll('.mstep').forEach((s, j) => s.classList.toggle('on', i === j));
+  const d = mechData[i];
+  document.getElementById('mech-title').textContent = d.title;
+  document.getElementById('mf1').textContent = d.f1;
+  document.getElementById('mf2').textContent = d.f2;
+  document.getElementById('mf3').textContent = d.f3;
+  document.getElementById('mf4').textContent = d.f4;
+}
+
+/* ── BENTO PARALLAX ─────────────────────────────────── */
+function bentoPara(el, e) {
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  el.style.setProperty('--mx', x + '%');
+  el.style.setProperty('--my', y + '%');
+}
+
+/* ── NUMBER COUNTER ─────────────────────────────────── */
+function animateCount(el, target, suffix) {
+  let current = 0;
+  const step = target / 60;
+  const t = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Number.isInteger(target) ? Math.floor(current) + suffix : current.toFixed(1) + suffix;
+    if (current >= target) clearInterval(t);
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const nums = e.target.querySelectorAll('.proof-num, .h-stat-val, .rating-big');
+      // simple counter for proof numbers
+      e.target.querySelectorAll('.proof-num').forEach(n => {
+        const raw = n.textContent;
+        if (raw.includes('95')) animateCount(n.querySelector('.proof-unit') ? n : n, 95.2, '');
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+/* ── MAGNETIC BUTTONS ───────────────────────────────── */
+document.querySelectorAll('.btn-primary-hero, .btn-add-cart, .btn-cta-wh').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const dx = e.clientX - rect.left - rect.width / 2;
+    const dy = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${dx * 0.15}px, ${dy * 0.15}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
 </script>
 </body>
 </html>
